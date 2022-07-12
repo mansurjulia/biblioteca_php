@@ -37,7 +37,7 @@
       <?php foreach(fnLocalizaLivroPorNome($titulo) as $livro): ?>
 
         <div class="card-vitrine">
-            <img src="<?= $livro->foto ?>" class="card-img" alt="...">
+            <img width=200 high=300 src="<?= $livro->foto ?>" class="card-img" alt="...">
             <div class="card-body">
                 <h5 class="card-title">Título: <?= $livro->titulo ?></h5>
                 <p class="card-text">Autor: <?= $livro->autor ?></p>
