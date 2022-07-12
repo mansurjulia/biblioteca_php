@@ -2,6 +2,7 @@
 
     require_once('repository/LivroRepository.php');
     require_once('util/base64.php');
+    require_once('util/upload-arquivo');
     session_start(); 
 
     $id = filter_input(INPUT_POST, 'idLivro', FILTER_SANITIZE_NUMBER_INT);

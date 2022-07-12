@@ -4,7 +4,6 @@
 
     function uploadImg($file) {
                 
-        # valida erros possíveis - é melhor colocar no inicio pois se algo estiver errado ele não vai tentar validar tudo
         switch($file['error']) {
             case UPLOAD_ERR_OK:
                 //echo 'O arquivo foi upado com sucesso.';
@@ -28,25 +27,22 @@
         
         #valida o tipo do arquivo
         $tiposValidos = array(
-            'jpg' => 'image/jpeg',
-            'jpeg' => 'image/jpeg',
-            'png' => 'image/png'
+            'zip' => 'application/x-zip-compressed',
+            'rar' => 'application/octet-stream',
+            'docx' => 'application/vd.openxmlformats-officedocument.wordprocessingml.document',
+            'doc' => 'application/msword',
+            'pdf' => 'application/pdf'
+            
         );
-
-        # essa função monta o novo nome do arquivo: .jpg .jpeg ...
-
-        //$exploded = explode('.', $file['name']); //Onde o explode encontrar o que está entre as '' ele vai quebrar a criptografia, transformando em array
-        //$ext = end($exploded); // o end pega a última posição do array    
 
         if(!$ext = array_search($file['type'], $tiposValidos, true)) {
             echo 'O arquivo enviado não é válido.';
         } 
         
-        ##montar o novo nome do arquivo:
-        $localSalvar = sprintf('.' . DIRECTORY_SEPARATOR . 'imagens' . DIRECTORY_SEPARATOR . '%s.%s', md5(date('Y.m.d-H.i.s.ms')), $ext); //%s.%s pq é uma string.string, poderia ser %d se fosse um digito, %c se fosse um caractere ou %f se fosse um float
+        $localSalvar = sprintf('.' . DIRECTORY_SEPARATOR . 'arquivos' . DIRECTORY_SEPARATOR . '%s.%s', 'download', $ext);
  
         if(move_uploaded_file($file['tmp_name'], $localSalvar)) {
-            return substr($localSalvar, 2); //o 2 é só para tirar o .\ antes do endereço da img
+            return substr($localSalvar, 2);
         }
             echo 'Ocorreu um erro ao tentar efetuar o upload.';
     }

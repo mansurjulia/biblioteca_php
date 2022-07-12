@@ -28,7 +28,7 @@
             <form action="editaLivro.php" method="post" class="form" enctype="multipart/form-data">
 
                 <div class="card col-4 offset-4 text-center">
-                    <img src="<?= $livro->foto ?>" id="avatarId" class="rounded" alt="foto da capa">
+                    <img src="<?= $titulo->foto ?>" id="avatarId" class="rounded" alt="foto da capa">
                 </div>
                 
                 <div class="mb-3 form-group">
@@ -49,13 +49,13 @@
 
                 <div>
 
-                    <input type="hidden" name="idTitulo" id="tituloId" value="<?= $livro->id ?>">
+                    <input type="hidden" name="idTitulo" id="tituloId" value="<?= $titulo->id ?>">
 
                 </div>
                 <div class="mb-3 form-group">
 
                     <label for="tituloId" class="form-label">Título</label>
-                    <input type="text" name="titulo" id="tituloId" class="form-control" placeholder="Informe o título">
+                    <input type="text" name="titulo" id="tituloId" class="form-control" placeholder="Informe o título" value="<?= $titulo->titulo ?>">
                     <div id="helperTitulo" class="form-text">Informe o título completo</div>
 
                 </div>
@@ -63,7 +63,7 @@
                <div class="mb-3 form-group">
 
                     <label for="autorId" class="form-label">Autor</label>
-                    <input type="text" name="autor" id="autorId" class="form-control" placeholder="Informe o autor">
+                    <input type="text" name="autor" id="autorId" class="form-control" placeholder="Informe o autor" value="<?= $titulo->autor ?>">
                     <div id="helperAutor" class="form-text">Informe o nome do autor</div>
 
                 </div>
@@ -71,7 +71,7 @@
                 <div class="mb-3 form-group">
 
                     <label for="editoraId" class="form-label">Editora</label>
-                    <input type="text" name="editora" id="editoraId" class="form-control" placeholder="Informe a editora">
+                    <input type="text" name="editora" id="editoraId" class="form-control" placeholder="Informe a editora" value="<?= $titulo->editora ?>">
                     <div id="helperEditora" class="form-text">Informe a Editora</div>
 
                 </div><br>

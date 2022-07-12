@@ -1,6 +1,8 @@
 <?php 
 
     include('config.php');  
+    require_once ('repository/LivroRepository.php');
+    $titulo = filter_input(INPUT_GET, 'titulo', FILTER_SANITIZE_SPECIAL_CHARS);
 
 ?>
 
@@ -32,70 +34,19 @@
 
     <br><br>
 
-<div class="card-group">
-  <div class="card">
-    <img src="imagens/HP_PedraFilosofal.jpg" class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">Harry Potter e a Pedra Filosofal</h5>
-      <p class="card-text">Primeiro livro da série</p>
-      <div class="card-body">
-        <a href="#" class="card-link">Download</a>
-      </div>
-    </div>
-  </div>
-  <div class="card">
-    <img src="imagens/HP_CamaraSecreta.jpg" class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">Harry Potter e a Câmara Secreta</h5>
-      <p class="card-text">Segundo livro da série</p>
-      <div class="card-body">
-        <a href="#" class="card-link">Download</a>
-      </div>
-    </div>
-  </div>
-  <div class="card">
-    <img src="imagens/HP_PrisioneiroAzkaban.jpg" class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">Harry Potter e o Prisioneiro de Azkaban</h5>
-      <p class="card-text">Terceiro livro da série.</p>
-      <div class="card-body">
-        <a href="#" class="card-link">Download</a>
-      </div>
-    </div>
-  </div>
+      <?php foreach(fnLocalizaLivroPorNome($titulo) as $livro): ?>
 
+        <div class="card-vitrine">
+            <img src="<?= $livro->foto ?>" class="card-img" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Título: <?= $livro->titulo ?></h5>
+                <p class="card-text">Autor: <?= $livro->autor ?></p>
+            </div>
+            <p class="card-text">Editora: <?= $livro->editora ?></p>
+        </div> 
+        <br> 
 
-  <div class="card">
-    <img src="imagens/HP_CaliceFogo.jpg" class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">Harry Potter e o Cálice de Fogo</h5>
-      <p class="card-text">Quarto livro da série</p>
-      <div class="card-body">
-        <a href="#" class="card-link">Download</a>
-      </div>
-    </div>
-  </div>
-  <div class="card">
-    <img src="imagens/HP_OrdemFenix.jpg" class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">Harry Potter e a Ordem da Fênix</h5>
-      <p class="card-text">Quinto livro da série</p>
-      <div class="card-body">
-        <a href="#" class="card-link">Download</a>
-      </div>
-    </div>
-  </div>
-  <div class="card">
-    <img src="imagens/HP_EnigmaPrincipe.jpg" class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">Harry Potter e o Enigma do Príncipe</h5>
-      <p class="card-text">Sexto livro da série.</p>
-      <div class="card-body">
-        <a href="#" class="card-link">Download</a>
-      </div>
-    </div>
-  </div>
-
+  <?php endforeach; ?>
 
    
 
