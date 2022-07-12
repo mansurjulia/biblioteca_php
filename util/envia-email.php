@@ -6,7 +6,7 @@
     date_default_timezone_set('America/Sao_Paulo');
 
     define('GUSER', 'bibliotecamansur.php@gmail.com');
-    define('GPWD', 'biblioteca@123');
+    define('GPWD', 'dldbevdnelnqsszn');
 
     function send($usuario){
 
