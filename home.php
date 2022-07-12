@@ -32,23 +32,21 @@
         </div>
     </div>
 
-    <br><br>
-
       <?php foreach(fnLocalizaLivroPorNome($titulo) as $livro): ?>
 
         <div class="card-vitrine">
-            <img width=200 high=300 src="<?= $livro->foto ?>" class="card-img" alt="...">
+            <img src="<?= $livro->foto ?>" class="card-img" alt="...">
             <div class="card-body">
-                <h5 class="card-title">Título: <?= $livro->titulo ?></h5>
+                <h5 class="card-title"><?= $livro->titulo ?></h5>
                 <p class="card-text">Autor: <?= $livro->autor ?></p>
             </div>
             <p class="card-text">Editora: <?= $livro->editora ?></p>
+            
+            <td class="download"><a href="<?= $livro->arquivo ?>" download="">Faça Download Aqui</a></td>
+            <br> 
         </div> 
-        <br> 
 
-  <?php endforeach; ?>
-
-   
+  <?php endforeach; ?> 
 
     <?php include("rodape.php"); ?>
   </body>
